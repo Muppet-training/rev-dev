@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 
 class SignUp extends Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  render() {
-    return (
-      <div>
-
-      </div>
-    );
-  }
+	render() {
+		return <div>SignUp</div>;
+	}
 }
 
 export default SignUp;
