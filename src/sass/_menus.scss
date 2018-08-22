@@ -1,3 +1,18 @@
+@import "_variables.scss";
+$numericValue: 1;
+
+.menu-toggle {
+	grid-area: "toggle";
+}
+
+.brand {
+	grid-area: "brand";
+}
+
+.avatar {
+	grid-area: "avatar";
+}
+
 .topbar {
 	display: grid;
 	grid-row: 1;
@@ -9,11 +24,45 @@
 	background-color: #515151;
 
 	ul {
-		display: flex;
-		-webkit-box-align: start;
-		-ms-flex-align: start;
-		align-items: flex-start;
+		display: grid;
+		grid-row: auto;
+		grid-template-columns: $numericValue * 100px auto
+			$numericValue * 100px;
+		grid-template-areas: "toggle brand avatar";
 		margin: 0px;
+
+		.menu-toggle {
+			height: 45px;
+			width: 45px;
+			background: $dark_orange;
+			border-radius: 50%;
+			margin-top: 2px;
+			line-height: 45px;
+			text-align: center;
+			margin-left: 10px;
+		}
+
+		.brand {
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			margin: auto;
+			background-color: $light_orange;
+			line-height: 50px;
+		}
+
+		.avatar {
+			height: 30px;
+			width: 30px;
+			background: $dark_orange;
+			border-radius: 50%;
+			margin-top: 10px;
+			line-height: 30px;
+			text-align: center;
+			margin-left: 10px;
+			position: absolute;
+			right: 10px;
+		}
 	}
 
 	li {

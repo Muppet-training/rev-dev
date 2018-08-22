@@ -134,6 +134,18 @@ table {
   fill: red;
 }
 
+.menu-toggle {
+  grid-area: "toggle";
+}
+
+.brand {
+  grid-area: "brand";
+}
+
+.avatar {
+  grid-area: "avatar";
+}
+
 .topbar {
   display: grid;
   grid-row: 1;
@@ -145,11 +157,41 @@ table {
   background-color: #515151;
 }
 .topbar ul {
-  display: flex;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  display: grid;
+  grid-row: auto;
+  grid-template-columns: 100px auto 100px;
+  grid-template-areas: "toggle brand avatar";
   margin: 0px;
+}
+.topbar ul .menu-toggle {
+  height: 45px;
+  width: 45px;
+  background: orangered;
+  border-radius: 50%;
+  margin-top: 2px;
+  line-height: 45px;
+  text-align: center;
+  margin-left: 10px;
+}
+.topbar ul .brand {
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  background-color: orange;
+  line-height: 50px;
+}
+.topbar ul .avatar {
+  height: 30px;
+  width: 30px;
+  background: orangered;
+  border-radius: 50%;
+  margin-top: 10px;
+  line-height: 30px;
+  text-align: center;
+  margin-left: 10px;
+  position: absolute;
+  right: 10px;
 }
 .topbar li {
   margin: 0px;

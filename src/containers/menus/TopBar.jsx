@@ -9,19 +9,11 @@ class TopBar extends Component {
 		return (
 			<div className="topbar">
 				<ul>
-					<li>
-						<div class="icon">
-							<svg class="icon-1">
-								<use href="icons.svg#menu" />
-							</svg>
-						</div>
+					<li className="menu-toggle">x </li>
+					<li className="brand">
+						<p>Recipe Revenue</p>
 					</li>
-					<li>
-						<p>Logo</p>
-					</li>
-					<li>
-						<p>Logo</p>
-					</li>
+					<li className="avatar">u</li>
 				</ul>
 			</div>
 		);
