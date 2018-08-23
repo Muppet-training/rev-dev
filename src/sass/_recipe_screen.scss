@@ -3,4 +3,7 @@
 }
 
 .recipe-details {
+	display: grid;
+	grid-template-rows: 50px auto;
+	grid-template-columns: auto;
 }

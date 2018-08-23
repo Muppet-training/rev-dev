@@ -137,11 +137,12 @@ table {
 .userapp {
   display: grid;
   grid-template-rows: 50px minmax(100vh, auto);
-  grid-template-columns: 180px auto;
-  grid-template-areas: "topbar topbar" "screens screens";
+  grid-template-columns: 100%;
+  grid-template-areas: "topbar" "screens";
 }
 
 .userapp.menu {
+  grid-template-columns: 180px auto;
   grid-template-areas: "topbar topbar" "leftbar screens";
 }
 
@@ -263,6 +264,12 @@ input {
 
 .edit-recipe {
   background-color: orangered;
+}
+
+.recipe-details {
+  display: grid;
+  grid-template-rows: 50px auto;
+  grid-template-columns: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
