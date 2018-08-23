@@ -1,9 +1,20 @@
+@import "_variables.scss";
+
 .edit-recipe {
-	background-color: orangered;
 }
 
-.recipe-details {
-	display: grid;
-	grid-template-rows: 50px auto;
-	grid-template-columns: auto;
+.screen_title {
+	height: 40px;
+	padding-left: 10px;
+	h1 {
+		font-size: 20px;
+		padding-top: 15px;
+	}
+}
+
+.details_input {
+}
+
+.details_packaging {
+	margin: 40px 0px;
 }

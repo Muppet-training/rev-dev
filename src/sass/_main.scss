@@ -88,6 +88,7 @@ video {
 	vertical-align: baseline;
 	color: #343434;
 	font-family: "Montserrat";
+	font-weight: 100;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -134,13 +135,17 @@ table {
 .userapp {
 	display: grid;
 	grid-template-rows: 50px minmax(100vh, auto);
-	grid-template-columns: 100%;
-	grid-template-areas: 'topbar' 'screens';
+	grid-template-columns: 0px 100%;
+	grid-template-areas: 'topbar topbar' 'leftbar screens';
 }
 
 .userapp.menu {
 	grid-template-columns: 180px auto;
 	grid-template-areas: 'topbar topbar' 'leftbar screens';
+
+	div.leftbar {
+		display: block;
+	}
 }
 
 .topbar {
@@ -149,6 +154,7 @@ table {
 
 .leftbar {
 	grid-area: leftbar;
+	display: none;
 }
 
 .screens {

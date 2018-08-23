@@ -16,7 +16,7 @@ class TopBar extends Component {
 					>
 						<img src={icon} />
 					</li>
-					<li className="brand">Brand</li>
+					<li className="brand">Recipe Revenue</li>
 					<li className="avatar">
 						<span>u</span>
 					</li>
