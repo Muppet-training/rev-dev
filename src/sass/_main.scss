@@ -130,3 +130,22 @@ table {
 .icon-1 {
 	fill: red;
 }
+
+.app {
+	display: grid;
+	grid-template-rows: 50px minmax(100vh, auto);
+	grid-template-columns: 180px auto;
+	grid-template-areas: 'topbar topbar' 'leftbar screens';
+}
+
+.topbar {
+	grid-area: topbar;
+}
+
+.leftbar {
+	grid-area: leftbar;
+}
+
+.screens {
+	grid-area: screens;
+}

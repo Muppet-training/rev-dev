@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 
 class TabItem extends Component {
-  constructor(props) {
-    super(props);
-  }
+	constructor(props) {
+		super(props);
+	}
 
-  render() {
-    return (
-      <div>
+	render() {
+		const { tabItems } = this.props;
 
-      </div>
-    );
-  }
+		const menuItems = tabItems.map((item) => {
+			console.log(item);
+			return <li>{item.itemName}</li>;
+		});
+
+		return (
+			<div className="tabitem">
+				<ul>{menuItems}</ul>
+			</div>
+		);
+	}
 }
 
 export default TabItem;

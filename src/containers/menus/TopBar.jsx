@@ -9,7 +9,7 @@ class TopBar extends Component {
 		return (
 			<div className="topbar">
 				<ul>
-					<li className="menu-toggle">x </li>
+					<li className="menu-toggle">x</li>
 					<li className="brand">
 						<p>Recipe Revenue</p>
 					</li>
