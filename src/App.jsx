@@ -21,17 +21,29 @@ class App extends Component {
 	}
 
 	menuToggleClick = () => {
-		alert('You found me!');
 		this.setState((state) => ({
 			toggle: !state.toggle
 		}));
 	};
 
 	render() {
+		const { toggle } = this.state;
+		console.log(toggle);
 		return (
-			<div className={isUser === true ? 'userapp' : 'app'}>
+			<div
+				id="app"
+				className={
+					isUser === false ? (
+						'app'
+					) : toggle === true ? (
+						'userapp menu'
+					) : (
+						'' + 'userapp'
+					)
+				}
+			>
 				{isUser === true && (
-					<TopBar menuToggleClick={menuToggleClick} />
+					<TopBar menuToggleClick={this.menuToggleClick} />
 				)}
 				{isUser === true && <LeftBar />}
 				<div className="screens">

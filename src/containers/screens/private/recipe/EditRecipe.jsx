@@ -14,8 +14,6 @@ class EditRecipe extends Component {
 
 	render() {
 		const { toggle } = this.state;
-		console.log(toggle);
-
 		function content(toggle) {
 			switch (toggle) {
 				case 'details':
@@ -28,8 +26,6 @@ class EditRecipe extends Component {
 					return <Details />;
 			}
 		}
-
-		console.log(content);
 
 		return <div className="edit-recipe">{content(toggle)}</div>;
 	}
