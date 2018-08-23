@@ -7,10 +7,8 @@ class TabItem extends Component {
 
 	render() {
 		const { tabItems } = this.props;
-
 		const menuItems = tabItems.map((item) => {
-			console.log(item);
-			return <li>{item.itemName}</li>;
+			return <li key={item.itemName}>{item.itemName}</li>;
 		});
 
 		return (

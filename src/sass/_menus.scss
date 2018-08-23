@@ -1,6 +1,12 @@
 @import "_variables.scss";
 $numericValue: 1;
 
+#Capa_1 {
+	path {
+		color: #fff;
+	}
+}
+
 .menu-toggle {
 	grid-area: "toggle";
 }
@@ -27,7 +33,6 @@ $numericValue: 1;
 		.menu-toggle {
 			height: 45px;
 			width: 45px;
-			background: $primary_dark;
 			border-radius: 50%;
 			margin-top: 2px;
 			line-height: 45px;
@@ -47,14 +52,19 @@ $numericValue: 1;
 		.avatar {
 			height: 30px;
 			width: 30px;
-			background: $primary_dark;
+			background: orangered;
 			border-radius: 50%;
 			margin-top: 10px;
 			line-height: 30px;
-			text-align: center;
 			margin-left: 10px;
-			position: absolute;
-			right: 10px;
+			display: flex;
+			justify-self: end;
+			margin-right: 10px;
+
+			span {
+				text-align: center;
+				width: 100%;
+			}
 		}
 	}
 

@@ -6,21 +6,38 @@ import LeftBar from './containers/menus/LeftBar';
 
 import SignUp from './containers/screens/public/SignUp';
 import Dashboard from './containers/screens/private/dashboard/Dashboard';
+import EditRecipe from './containers/screens/private/recipe/EditRecipe';
 
 import './css/style.css';
 
 const isUser = true;
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			toggle: false
+		};
+	}
+
+	menuToggleClick = () => {
+		alert('You found me!');
+		this.setState((state) => ({
+			toggle: !state.toggle
+		}));
+	};
+
 	render() {
 		return (
-			<div className={isUser == true ? 'userapp' : 'app'}>
-				{isUser == true && <TopBar />}
-				{isUser == true && <LeftBar />}
+			<div className={isUser === true ? 'userapp' : 'app'}>
+				{isUser === true && (
+					<TopBar menuToggleClick={menuToggleClick} />
+				)}
+				{isUser === true && <LeftBar />}
 				<div className="screens">
 					<BrowserRouter>
 						<Switch>
-							{isUser == true ? (
+							{isUser === true ? (
 								<Route
 									path="/"
 									exact
@@ -34,9 +51,9 @@ class App extends Component {
 								/>
 							)}
 							<Route
-								path="/details"
+								path="/edit-recipe"
 								exact
-								component={details}
+								component={EditRecipe}
 							/>
 						</Switch>
 					</BrowserRouter>
