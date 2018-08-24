@@ -263,24 +263,25 @@ table {
 }
 
 .input_box {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0px 10px;
 }
 @media (min-width: 768px) {
   .input_box {
-    margin-left: 20px;
+    margin: 0px 20px;
   }
 }
 
+form {
+  width: 100%;
+}
 label {
-  grid-area: "label";
   font-size: 16px;
   margin-top: 20px;
-  display: block;
+  width: 195px;
+  display: inline-block;
 }
 
 input {
-  grid-area: "input";
   border: 0px;
   outline: 0;
   padding: 15px 0px;
@@ -288,6 +289,11 @@ input {
   width: 100%;
   font-size: 16px;
   font-weight: 100;
+}
+@media (min-width: 480px) {
+  input {
+    max-width: 260px;
+  }
 }
 
 .screen_title {
