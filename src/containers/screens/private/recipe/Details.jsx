@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TextInput from '../../../../components/textInputs/TextInput';
+
 class Details extends Component {
 	render() {
 		return (
@@ -9,34 +11,42 @@ class Details extends Component {
 						<h1>Add Recipe Details</h1>
 					</section>
 					<form>
-						<div className="input_box">
-							<label>Recipe Name</label>
-							<input name="name" type="text" />
-						</div>
-						<div className="input_box">
-							<label>Recipe Serving Size</label>
-							<input name="name" type="text" />
-						</div>
-						<div className="input_box">
-							<label>Use as Internal Recipe</label>
-							<input name="name" type="text" />
-						</div>
-						<div className="input_box">
-							<label>Sales Price</label>
-							<input name="name" type="text" />
-						</div>
-						<div className="input_box">
-							<label>Expected Sales Per Day</label>
-							<input name="name" type="text" />
-						</div>
-						<div className="input_box">
-							<label>Staff Time Involved</label>
-							<input name="name" type="text" />
-						</div>
-						<div className="input_box">
-							<label>Total Cooking time</label>
-							<input name="name" type="text" />
-						</div>
+						<TextInput
+							label="Use as Internal Recipe"
+							name="internal"
+							type="text"
+						/>
+						<TextInput
+							label="Recipe Name"
+							name="name"
+							type="text"
+						/>
+						<TextInput
+							label="Recipe Serving Size"
+							name="size"
+							type="text"
+						/>
+
+						<TextInput
+							label="Sales Price"
+							name="price"
+							type="text"
+						/>
+						<TextInput
+							label="Expected Sales Per Day"
+							name="sales"
+							type="text"
+						/>
+						<TextInput
+							label="Staff Time Involved"
+							name="staff_time"
+							type="text"
+						/>
+						<TextInput
+							label="Total Cooking time"
+							name="cooking_time"
+							type="text"
+						/>
 					</form>
 				</section>
 
@@ -45,10 +55,11 @@ class Details extends Component {
 						<h1>Add Packaging</h1>
 					</section>
 					<form>
-						<div className="input_box">
-							<label>Packaging Type</label>
-							<input name="name" type="text" />
-						</div>
+						<TextInput
+							label="Packaging Type"
+							name="packaging"
+							type="text"
+						/>
 					</form>
 				</section>
 			</div>
