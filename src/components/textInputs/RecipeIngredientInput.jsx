@@ -23,5 +23,6 @@ class TextInput extends Component {
 		);
 	}
 }
+// Sign off
 
 export default TextInput;
