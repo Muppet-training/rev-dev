@@ -16,6 +16,11 @@ class Details extends Component {
 							name="internal"
 							type="text"
 						/>
+						<RecipeIngredientInput
+							label="Search Ingredient"
+							name="internal"
+							type="text"
+						/>
 					</form>
 				</section>
 			</div>

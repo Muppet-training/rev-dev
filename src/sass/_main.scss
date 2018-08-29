@@ -1,4 +1,5 @@
 // From Main.scss
+@import "_variables.scss";
 
 html,
 body,
@@ -140,11 +141,23 @@ table {
 }
 
 .userapp.menu {
-	grid-template-columns: 180px auto;
-	grid-template-areas: 'topbar topbar' 'leftbar screens';
-
 	div.leftbar {
 		display: block;
+		background-color: $grey_highlight;
+		width: 180px;
+	}
+
+	@media (max-width: 629px) {
+		div.leftbar {
+			z-index: 1;
+			position: absolute;
+			top: 50px;
+		}
+	}
+
+	@media (min-width: 630px) {
+		grid-template-columns: 180px auto;
+		grid-template-areas: 'topbar topbar' 'leftbar screens';
 	}
 }
 

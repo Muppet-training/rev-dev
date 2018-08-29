@@ -1,10 +1,12 @@
+@import "_variables.scss";
+
 .input_box {
-	padding-left: 10px;
-	@media (min-width: 480px) and (max-width: 767px) {
-	}
-	@media (min-width: 768px) {
-		padding-left: 20px;
-	}
+	// padding-left: 10px;
+	// @media (min-width: 480px) and (max-width: 767px) {
+	// }
+	// @media (min-width: 768px) {
+	// 	padding-left: 20px;
+	// }
 }
 
 form {
@@ -32,43 +34,91 @@ input {
 	font-weight: 100;
 
 	@media (min-width: 480px) {
-		max-width: 260px;
+		width: 95%;
 	}
+}
+
+button.del_square {
+	background-color: red;
+	height: 30px;
+	width: 30px;
+	border: 1px solid red;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: 100;
+	cursor: pointer;
+	outline: 0;
 }
 
 .recipe_ingredient_box {
 	display: grid;
 	grid-template-rows: repeat(6, auto);
-	grid-template-columns: auto;
-	grid-template-areas: 'l1' 'i1' 'l2' 'i2' 'l3' 'i3';
+	grid-template-columns: auto 60px;
+	grid-template-areas: 'l1 del' 'i1 del' 'l2 del' 'i2 del' 'l3 del'
+		'i3 del';
+	max-width: 750px;
+	border-bottom: 1px solid $grey_highlight;
+	padding: 10px 0px 20px 10px;
 
-	@media (min-width: 768px) {
+	@media (min-width: 480px) and (max-width: 904px) {
+		max-width: 410px;
+		grid-template-rows: repeat(4, auto);
+		grid-template-columns: 230px 180px;
+		grid-template-areas: 'l1 l2' 'i1 i2' 'l3 del' 'i3 del';
+	}
+	@media (min-width: 905px) {
+		padding: 10px 0px 20px 20px;
+		max-width: 690px;
 		grid-template-rows: auto auto;
-		grid-template-columns: auto auto auto;
-		grid-template-areas: 'l1 l2 l3' 'i1 i2 i3';
+		grid-template-columns: 230px 180px 180px 100px;
+		grid-template-areas: 'l1 l2 l3 del' 'i1 i2 i3 del';
 	}
 }
 
 .label_1 {
-	grid-area: 'l1';
+	grid-area: l1;
 }
 
 .label_2 {
-	grid-area: 'l2';
+	grid-area: l2;
 }
 
 .label_3 {
-	grid-area: 'l3';
+	grid-area: l3;
 }
 
 .input_1 {
-	grid-area: 'i1';
+	grid-area: i1;
 }
 
 .input_2 {
-	grid-area: 'i2';
+	grid-area: i2;
 }
 
 .input_3 {
-	grid-area: 'i3';
+	grid-area: i3;
+}
+
+.del_4 {
+	grid-area: del;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	border-right: 2px solid #fff;
+	&:hover {
+		border-right: 2px solid red;
+	}
+}
+
+.del_4:hover ~ .label_2 {
+	@media (min-width: 630px) and (max-width: 904px) {
+		border-right: 2px solid red;
+	}
+}
+
+.del_4:hover ~ .input_2 {
+	@media (min-width: 630px) and (max-width: 904px) {
+		border-right: 2px solid red;
+	}
 }
