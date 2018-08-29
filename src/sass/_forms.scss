@@ -1,12 +1,24 @@
 @import "_variables.scss";
 
-.input_box {
-	// padding-left: 10px;
-	// @media (min-width: 480px) and (max-width: 767px) {
-	// }
-	// @media (min-width: 768px) {
-	// 	padding-left: 20px;
-	// }
+.text_box label {
+	grid-area: la;
+}
+
+.text_box input {
+	grid-area: in;
+}
+
+.text_box {
+	display: grid;
+	grid-template-rows: repeat(2, auto);
+	grid-template-columns: 315px;
+	grid-template-areas: 'la' 'in';
+	padding-left: 10px;
+
+	@media (min-width: 480px) {
+		grid-template-columns: 210px 215px;
+		grid-template-areas: 'la in';
+	}
 }
 
 form {
@@ -20,8 +32,6 @@ form {
 label {
 	font-size: 16px;
 	margin-top: 20px;
-	width: 195px;
-	display: inline-block;
 }
 
 input {
@@ -39,16 +49,22 @@ input {
 }
 
 button.del_square {
-	background-color: red;
+	background-color: $grey_highlight;
 	height: 30px;
 	width: 30px;
-	border: 1px solid red;
+	border: 1px solid $grey_border;
 	border-radius: 5px;
-	color: #fff;
 	font-weight: 100;
 	cursor: pointer;
 	outline: 0;
+	&:hover {
+		background-color: $primary_dark;
+		border: 1px solid $contrast_red;
+		color: #fff;
+	}
 }
+
+// Recipe Ingredients Styling
 
 .recipe_ingredient_box {
 	display: grid;
@@ -107,18 +123,89 @@ button.del_square {
 	height: 100%;
 	border-right: 2px solid #fff;
 	&:hover {
-		border-right: 2px solid red;
+		border-right: 2px solid $primary_dark;
 	}
 }
 
 .del_4:hover ~ .label_2 {
 	@media (min-width: 630px) and (max-width: 904px) {
-		border-right: 2px solid red;
+		border-right: 2px solid $primary_dark;
 	}
 }
 
 .del_4:hover ~ .input_2 {
 	@media (min-width: 630px) and (max-width: 904px) {
-		border-right: 2px solid red;
+		border-right: 2px solid $primary_dark;
+	}
+}
+
+// Results Styling
+.results_overview {
+	padding: 15px 0px 0px 10px;
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: 200px auto;
+	grid-template-areas: 'names compare' 'add add';
+
+	@media (min-width: 480px) {
+		grid-template-rows: auto;
+		grid-template-columns: 170px minmax(140px, auto) 150px;
+		grid-template-areas: 'names compare add';
+	}
+}
+
+.results_overview_names {
+	grid-area: names;
+
+	h3 {
+		font-size: 16px;
+		line-height: 40px;
+		color: $grey_text;
+	}
+}
+
+.compare_results {
+	grid-area: compare;
+	h3 {
+		font-size: 16px;
+		line-height: 40px;
+		font-weight: 400;
+	}
+	p {
+		font-size: 13px;
+		line-height: 40px;
+		font-weight: 400;
+		padding-left: 20px;
+	}
+}
+
+.compare_add {
+	grid-area: add;
+	margin: auto;
+	text-align: center;
+	h3 {
+		font-size: 16px;
+		line-height: 40px;
+		font-weight: 400;
+	}
+	button {
+		width: 100px;
+		padding: 8px 0px;
+		outline: 0;
+		border: 0;
+		background: $primary_dark;
+		border-radius: 5px;
+		border: 1px solid $contrast_red;
+		color: #fff;
+		font-size: 16px;
+		font-weight: 300;
+		font-family: "Montserrat";
+		margin: 40px 0px 30px;
+	}
+	p {
+		font-size: 16px;
+		width: 130px;
+		margin: auto;
+		line-height: 20px;
 	}
 }

@@ -8,7 +8,7 @@ class TextInput extends Component {
 	render() {
 		const { label, name, type } = this.props;
 		return (
-			<div className="input_box recipe_ingredient_box">
+			<div className="recipe_ingredient_box">
 				<div className="del_4">
 					<button className="del_square recipe_ingredient_del">
 						X

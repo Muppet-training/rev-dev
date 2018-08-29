@@ -5,24 +5,22 @@ import RecipeIngredientInput from '../../../../components/textInputs/RecipeIngre
 class Details extends Component {
 	render() {
 		return (
-			<div className="recipe-details">
-				<section className="details_input">
-					<section className="screen_title">
-						<h1>Add Ingredients</h1>
-					</section>
-					<form>
-						<RecipeIngredientInput
-							label="Search Ingredient"
-							name="internal"
-							type="text"
-						/>
-						<RecipeIngredientInput
-							label="Search Ingredient"
-							name="internal"
-							type="text"
-						/>
-					</form>
+			<div className="recipe-ingredients">
+				<section className="screen_title">
+					<h1>Add Recipe Ingredients</h1>
 				</section>
+				<form>
+					<RecipeIngredientInput
+						label="Search Ingredient"
+						name="internal"
+						type="text"
+					/>
+					<RecipeIngredientInput
+						label="Search Ingredient"
+						name="internal"
+						type="text"
+					/>
+				</form>
 			</div>
 		);
 	}

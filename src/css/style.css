@@ -208,6 +208,7 @@ table {
   line-height: 45px;
   text-align: center;
   margin-left: 10px;
+  cursor: pointer;
 }
 .topbar ul .brand {
   text-align: center;
@@ -273,14 +274,34 @@ table {
   font-size: 15px;
 }
 
+.text_box label {
+  grid-area: la;
+}
+
+.text_box input {
+  grid-area: in;
+}
+
+.text_box {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 315px;
+  grid-template-areas: "la" "in";
+  padding-left: 10px;
+}
+@media (min-width: 480px) {
+  .text_box {
+    grid-template-columns: 210px 215px;
+    grid-template-areas: "la in";
+  }
+}
+
 form {
   width: 100%;
 }
 label {
   font-size: 16px;
   margin-top: 20px;
-  width: 195px;
-  display: inline-block;
 }
 
 input {
@@ -299,15 +320,19 @@ input {
 }
 
 button.del_square {
-  background-color: red;
+  background-color: #f1f1f1;
   height: 30px;
   width: 30px;
-  border: 1px solid red;
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
-  color: #fff;
   font-weight: 100;
   cursor: pointer;
   outline: 0;
+}
+button.del_square:hover {
+  background-color: orangered;
+  border: 1px solid red;
+  color: #fff;
 }
 
 .recipe_ingredient_box {
@@ -370,19 +395,68 @@ button.del_square {
   border-right: 2px solid #fff;
 }
 .del_4:hover {
-  border-right: 2px solid red;
+  border-right: 2px solid orangered;
 }
 
 @media (min-width: 630px) and (max-width: 904px) {
   .del_4:hover ~ .label_2 {
-    border-right: 2px solid red;
+    border-right: 2px solid orangered;
   }
 }
 
 @media (min-width: 630px) and (max-width: 904px) {
   .del_4:hover ~ .input_2 {
-    border-right: 2px solid red;
+    border-right: 2px solid orangered;
   }
+}
+
+.results_overview {
+  padding: 15px 0px 0px 10px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 200px auto;
+  grid-template-areas: "names compare" "add add";
+}
+@media (min-width: 480px) {
+  .results_overview {
+    grid-template-rows: auto;
+    grid-template-columns: 200px minmax(160px, auto) 160px;
+    grid-template-areas: "names compare add";
+  }
+}
+
+.results_overview_names {
+  grid-area: names;
+}
+.results_overview_names h3 {
+  font-size: 16px;
+  line-height: 40px;
+  color: #818181;
+}
+
+.compare_results {
+  grid-area: compare;
+}
+.compare_results h3 {
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 400;
+}
+.compare_results p {
+  font-size: 13px;
+  line-height: 40px;
+  font-weight: 400;
+}
+
+.compare_add {
+  grid-area: add;
+  width: 200px;
+  margin: auto;
+}
+.compare_add h3 {
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 400;
 }
 
 .screen_title {
