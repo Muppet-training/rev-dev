@@ -144,10 +144,10 @@ button.del_square {
 	padding: 15px 0px 0px 10px;
 	display: grid;
 	grid-template-rows: auto auto;
-	grid-template-columns: 200px auto;
+	grid-template-columns: 150px auto;
 	grid-template-areas: 'names compare' 'add add';
 
-	@media (min-width: 480px) {
+	@media (min-width: 550px) {
 		grid-template-rows: auto;
 		grid-template-columns: 170px minmax(140px, auto) 150px;
 		grid-template-areas: 'names compare add';
@@ -166,6 +166,8 @@ button.del_square {
 
 .compare_results {
 	grid-area: compare;
+	display: inline-flex;
+	overflow-x: scroll;
 	h3 {
 		font-size: 16px;
 		line-height: 40px;
@@ -177,6 +179,27 @@ button.del_square {
 		font-weight: 400;
 		padding-left: 20px;
 	}
+	div.result_list {
+		padding-right: 30px;
+		margin-right: 20px;
+		border-right: 1px solid $grey_border;
+	}
+	@media (max-width: 550px) {
+		div.result_list:last-child {
+			border-right: 0;
+		}
+	}
+}
+
+::-webkit-scrollbar {
+	height: 4px;
+	width: 4px;
+	// background: $grey_border;
+	border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+	background: $primary_light;
+	border-radius: 10px;
 }
 
 .compare_add {
