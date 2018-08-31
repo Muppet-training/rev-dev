@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import * as admin from 'firebase-admin';
+import { updateFirebaseUserAction } from './actions/updateFirebaseUserAction';
 
 import TopBar from './containers/menus/TopBar';
 import LeftBar from './containers/menus/LeftBar';
@@ -11,8 +12,6 @@ import Dashboard from './containers/screens/private/dashboard/Dashboard';
 import EditRecipe from './containers/screens/private/recipe/EditRecipe';
 
 import './css/style.css';
-
-const isUser = true;
 
 class App extends Component {
   constructor(props) {
@@ -31,12 +30,12 @@ class App extends Component {
 
   render() {
     const { toggleMenu } = this.state;
-    console.log(toggleMenu);
+
     return (
       <div
         id="app"
         className={
-          isUser === false ? (
+          this.props.firebaseUser === false ? (
             'app'
           ) : toggleMenu === true ? (
             'userapp menu'
@@ -45,11 +44,11 @@ class App extends Component {
               )
         }
       >
-        {isUser === true && <TopBar menuToggleClick={this.menuToggleClick} />}
-        {isUser === true && <LeftBar />}
+        {this.props.firebaseUser === true && <TopBar menuToggleClick={this.menuToggleClick} />}
+        {this.props.firebaseUser === true && <LeftBar />}
         <div className="screens">
           <BrowserRouter>
-            {isUser === true ? (
+            {this.props.firebaseUser === true ? (
               <Switch>
                 <Route
                   path="/"
@@ -78,4 +77,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return ({ firebaseUser: state.firebaseUser });
+}
+
+const mapDispatchToProps = dispatch => ({
+  updateFirebaseUserAction: () => dispatch(updateFirebaseUserAction())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
