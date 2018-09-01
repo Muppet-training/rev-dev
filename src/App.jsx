@@ -35,20 +35,20 @@ class App extends Component {
       <div
         id="app"
         className={
-          this.props.firebaseUser === false ? (
+          this.props.firebaseReducer.user == false ? (
             'app'
-          ) : toggleMenu === true ? (
+          ) : toggleMenu == true ? (
             'userapp menu'
           ) : (
                 '' + 'userapp'
               )
         }
       >
-        {this.props.firebaseUser === true && <TopBar menuToggleClick={this.menuToggleClick} />}
-        {this.props.firebaseUser === true && <LeftBar />}
+        {this.props.firebaseReducer.user == true && <TopBar menuToggleClick={this.menuToggleClick} />}
+        {this.props.firebaseReducer.user == true && <LeftBar />}
         <div className="screens">
           <BrowserRouter>
-            {this.props.firebaseUser === true ? (
+            {this.props.firebaseReducer.user == true ? (
               <Switch>
                 <Route
                   path="/"
@@ -77,9 +77,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({ firebaseUser: state.firebaseUser });
-}
+const mapStateToProps = state => ({
+  ...state
+ })
 
 const mapDispatchToProps = dispatch => ({
   updateFirebaseUserAction: () => dispatch(updateFirebaseUserAction())
