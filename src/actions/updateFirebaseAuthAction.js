@@ -1,9 +1,9 @@
-export const UPDATE_FIREBASE_AUTH_ACTION_TYPE =  'UPDATE_FIREBASE_AUTH_ACTION_TYPE';
+export const UPDATE_FIREBASE_AUTH_ACTION_TYPE = 'UPDATE_FIREBASE_AUTH_ACTION_TYPE';
 
-export const updateFirebaseAuthAction = (firebaseAuth) => dispatch => {
+export const updateFirebaseAuthAction = (auth) => dispatch => {
     dispatch({
-     type: UPDATE_FIREBASE_AUTH_ACTION_TYPE,
-     payload: firebaseAuth
+        type: UPDATE_FIREBASE_AUTH_ACTION_TYPE,
+        payload: auth
     });
 }
 

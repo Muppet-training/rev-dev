@@ -1,4 +1,17 @@
 import React, { Component } from 'react';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { connect } from 'react-redux';
+import firebaseui from 'firebaseui';
+import firebase from 'firebase';
+
+const uiConfig = {
+  signInFlow: 'popup',
+  signInSuccessUrl: '/',
+  signInOptions: [
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+  ],
+  credentialHelper: firebaseui.auth.CredentialHelper.NONE
+};
 
 class Login extends Component {
   constructor(props) {
@@ -8,10 +21,14 @@ class Login extends Component {
   render() {
     return (
       <div>
-
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
       </div>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  ...state
+});
+
+export default connect(mapStateToProps)(Login);
