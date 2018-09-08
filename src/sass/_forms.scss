@@ -191,13 +191,13 @@ button.del_square {
 	}
 }
 
-::-webkit-scrollbar {
+.compare_results::-webkit-scrollbar {
 	height: 4px;
 	width: 4px;
 	// background: $grey_border;
 	border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:horizontal {
+.compare_results::-webkit-scrollbar-thumb:horizontal {
 	background: $primary_light;
 	border-radius: 10px;
 }

@@ -15,106 +15,118 @@ import EditRecipe from './containers/screens/private/recipe/EditRecipe';
 
 import Login from './containers/screens/public/Login';
 
-import './css/style.css';
+// import './css/style.css';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA7gbMLG3JMchWV_0khRpOZQ280xxB6cbY",
-  authDomain: "recipe-revenue-calc.firebaseapp.com",
-  databaseURL: "https://recipe-revenue-calc.firebaseio.com",
-  projectId: "recipe-revenue-calc",
-  storageBucket: "recipe-revenue-calc.appspot.com",
-  messagingSenderId: "1064966341760"
+	apiKey: 'AIzaSyA7gbMLG3JMchWV_0khRpOZQ280xxB6cbY',
+	authDomain: 'recipe-revenue-calc.firebaseapp.com',
+	databaseURL: 'https://recipe-revenue-calc.firebaseio.com',
+	projectId: 'recipe-revenue-calc',
+	storageBucket: 'recipe-revenue-calc.appspot.com',
+	messagingSenderId: '1064966341760'
 };
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    // Initialize firebase
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
+		// Initialize firebase
+		if (!firebase.apps.length) {
+			firebase.initializeApp(firebaseConfig);
+		}
 
-    this.state = {
-      toggleMenu: false
-    };
-  }
+		this.state = {
+			toggleMenu: false
+		};
+	}
 
-  menuToggleClick = () => {
-    this.setState((state) => ({
-      toggleMenu: !state.toggleMenu
-    }));
-  };
+	menuToggleClick = () => {
+		this.setState((state) => ({
+			toggleMenu: !state.toggleMenu
+		}));
+	};
 
-  componentDidMount() {
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.props.updateFirebaseUserAction(user);
-        this.props.updateFirebaseDatabaseAction(firebase.database());
-        this.props.updateFirebaseAuthAction(firebase.auth());
-      } else {
-        this.props.updateFirebaseUserAction(undefined);
-      }
-    });
+	componentDidMount() {
+		this.unregisterAuthObserver = firebase
+			.auth()
+			.onAuthStateChanged((user) => {
+				if (user) {
+					this.props.updateFirebaseUserAction(user);
+					this.props.updateFirebaseDatabaseAction(
+						firebase.database()
+					);
+					this.props.updateFirebaseAuthAction(
+						firebase.auth()
+					);
+				} else {
+					this.props.updateFirebaseUserAction(undefined);
+				}
+			});
+	}
 
-  }
+	componentWillUnmount() {
+		this.unregisterAuthObserver();
+	}
 
-  componentWillUnmount() {
-    this.unregisterAuthObserver();
-  }
+	render() {
+		const { toggleMenu } = this.state;
 
-  render() {
-    const { toggleMenu } = this.state;
-
-    return (
-      <div
-        id="app"
-        className={
-          this.props.firebaseReducer.user == false ? (
-            'app'
-          ) : toggleMenu == true ? (
-            'userapp menu'
-          ) : (
-                '' + 'userapp'
-              )
-        }
-      >
-        {this.props.firebaseReducer.user != undefined && <TopBar menuToggleClick={this.menuToggleClick} />}
-        {this.props.firebaseReducer.user != undefined && <LeftBar />}
-        <div className="screens">
-          <BrowserRouter>
-            {this.props.firebaseReducer.user != undefined ? (
-              <Switch>
-                <Route
-                  path="/"
-                  exact={true}
-                  component={Dashboard}
-                />
-                <Route
-                  path="/edit-recipe"
-                  exact
-                  component={EditRecipe}
-                />
-              </Switch>
-            ) : (
-                <Login />
-              )}
-          </BrowserRouter>
-        </div>
-      </div>
-    );
-  }
+		return (
+			<div
+				id="app"
+				className={
+					this.props.firebaseReducer.user == false ? (
+						'app'
+					) : toggleMenu == true ? (
+						'userapp menu'
+					) : (
+						'userapp'
+					)
+				}
+			>
+				{this.props.firebaseReducer.user != undefined && (
+					<TopBar menuToggleClick={this.menuToggleClick} />
+				)}
+				{this.props.firebaseReducer.user != undefined && (
+					<LeftBar />
+				)}
+				<div className="screens">
+					<BrowserRouter>
+						{this.props.firebaseReducer.user !=
+						undefined ? (
+							<Switch>
+								<Route
+									path="/"
+									exact={true}
+									component={Dashboard}
+								/>
+								<Route
+									path="/edit-recipe"
+									exact
+									component={EditRecipe}
+								/>
+							</Switch>
+						) : (
+							<Login />
+						)}
+					</BrowserRouter>
+				</div>
+			</div>
+		);
+	}
 }
 
-const mapStateToProps = state => ({
-  ...state
+const mapStateToProps = (state) => ({
+	...state
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateFirebaseUserAction: (user) => dispatch(updateFirebaseUserAction(user)),
-  updateFirebaseDatabaseAction: (database) => dispatch(updateFirebaseDatabaseAction(database)),
-  updateFirebaseAuthAction: (auth) => dispatch(updateFirebaseAuthAction(auth))
+const mapDispatchToProps = (dispatch) => ({
+	updateFirebaseUserAction: (user) =>
+		dispatch(updateFirebaseUserAction(user)),
+	updateFirebaseDatabaseAction: (database) =>
+		dispatch(updateFirebaseDatabaseAction(database)),
+	updateFirebaseAuthAction: (auth) =>
+		dispatch(updateFirebaseAuthAction(auth))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-

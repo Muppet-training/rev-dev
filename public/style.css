@@ -138,8 +138,8 @@ table {
 .userapp {
   display: grid;
   grid-template-rows: 50px minmax(100vh, auto);
-  grid-template-columns: 0px 100%;
-  grid-template-areas: "topbar topbar" "leftbar screens";
+  grid-template-columns: 100%;
+  grid-template-areas: " topbar" " screens";
 }
 
 .userapp.menu div.leftbar {
@@ -156,8 +156,8 @@ table {
 }
 @media (min-width: 630px) {
   .userapp.menu {
-    grid-template-columns: 180px auto;
-    grid-template-areas: "topbar topbar" "leftbar screens";
+    grid-template-columns: auto;
+    grid-template-areas: " topbar" " screens";
   }
 }
 
@@ -461,13 +461,13 @@ button.del_square:hover {
   }
 }
 
-::-webkit-scrollbar {
+.compare_results::-webkit-scrollbar {
   height: 4px;
   width: 4px;
   border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:horizontal {
+.compare_results::-webkit-scrollbar-thumb:horizontal {
   background: orange;
   border-radius: 10px;
 }

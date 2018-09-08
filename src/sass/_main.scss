@@ -136,8 +136,8 @@ table {
 .userapp {
 	display: grid;
 	grid-template-rows: 50px minmax(100vh, auto);
-	grid-template-columns: 0px 100%;
-	grid-template-areas: 'topbar topbar' 'leftbar screens';
+	grid-template-columns: 100%;
+	grid-template-areas: ' topbar' ' screens';
 }
 
 .userapp.menu {
@@ -156,8 +156,8 @@ table {
 	}
 
 	@media (min-width: 630px) {
-		grid-template-columns: 180px auto;
-		grid-template-areas: 'topbar topbar' 'leftbar screens';
+		grid-template-columns: auto;
+		grid-template-areas: ' topbar' ' screens';
 	}
 }
 
