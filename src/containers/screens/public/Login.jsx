@@ -21,7 +21,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth} />
       </div>
     );
   }

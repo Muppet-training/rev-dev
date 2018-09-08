@@ -20,8 +20,7 @@ class TopBar extends Component {
 				<ul>
 					<li
 						className="menu-toggle"
-						onClick={this.props.menuToggleClick}
-					>
+						onClick={this.props.menuToggleClick}>
 						<img src={icon} />
 					</li>
 					<li className="brand">Recipe Revenue<button onClick={this.signOut}>Sign Out</button>

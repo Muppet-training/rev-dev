@@ -35,6 +35,8 @@ class App extends Component {
       firebase.initializeApp(firebaseConfig);
     }
 
+    this.props.updateFirebaseDatabaseAction(firebase.auth());
+
     this.state = {
       toggleMenu: false
     };
