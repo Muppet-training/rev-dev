@@ -5,6 +5,10 @@ import firebase from 'firebase';
 
 import { updateFirebaseAuthAction } from './actions/updateFirebaseAuthAction';
 import { updateFirebaseUserAction } from './actions/updateFirebaseUserAction';
+import { updateFirebaseDatabaseUserDataSnapshotAction } from './actions/updateFirebaseDatabaseUserDataSnapshotAction';
+import { updateFirebaseDatabaseIngredientsDataSnapshotAction } from './actions/updateFirebaseDatabaseIngredientsDataSnapshotAction';
+import { updateFirebaseDatabaseSuppliersDataSnapshotAction } from './actions/updateFirebaseDatabaseSuppliersDataSnapshotAction';
+
 
 import TopBar from './containers/menus/TopBar';
 import LeftBar from './containers/menus/LeftBar';
@@ -50,12 +54,31 @@ class App extends Component {
 			.auth()
 			.onAuthStateChanged((user) => {
 				if (user) {
+					// Initialize the redux state
 					this.props.updateFirebaseUserAction(user);
 					this.props.updateFirebaseAuthAction(
 						firebase.auth()
 					);
+
+					// Initialize the database listeners
+					var database = firebase.database();
+					database.ref('/users/' + firebase.auth().currentUser.uid).on('value', (dataSnapshot) => {
+						this.props.updateFirebaseDatabaseUserDataSnapshotAction(dataSnapshot);
+					});
+					database.ref('/ingredients/').on('value', (dataSnapshot) => {
+						this.props.updateFirebaseDatabaseIngredientsDataSnapshotAction(dataSnapshot);
+					});
+					database.ref('/suppliers/').on('value', (dataSnapshot) => {
+						this.props.updateFirebaseDatabaseSuppliersDataSnapshotAction(dataSnapshot);
+					});
 				} else {
+					// Turn off the listerners and reset redux state
+					firebase.database().ref().off();
 					this.props.updateFirebaseUserAction(undefined);
+					this.props.updateFirebaseAuthAction(undefined);
+					this.props.updateFirebaseDatabaseUserDataSnapshotAction(undefined);
+					this.props.updateFirebaseDatabaseIngredientsDataSnapshotAction(undefined);
+					this.props.updateFirebaseDatabaseSuppliersDataSnapshotAction(undefined);
 				}
 			});
 	}
@@ -76,8 +99,8 @@ class App extends Component {
 					) : toggleMenu == true ? (
 						'userapp menu'
 					) : (
-						'userapp'
-					)
+								'userapp'
+							)
 				}
 			>
 				{this.props.firebaseReducer.user != undefined && (
@@ -89,22 +112,22 @@ class App extends Component {
 				<div className="screens">
 					<BrowserRouter>
 						{this.props.firebaseReducer.user !=
-						undefined ? (
-							<Switch>
-								<Route
-									path="/"
-									exact={true}
-									component={Dashboard}
-								/>
-								<Route
-									path="/edit-recipe"
-									exact
-									component={EditRecipe}
-								/>
-							</Switch>
-						) : (
-							<Login />
-						)}
+							undefined ? (
+								<Switch>
+									<Route
+										path="/"
+										exact={true}
+										component={Dashboard}
+									/>
+									<Route
+										path="/edit-recipe"
+										exact
+										component={EditRecipe}
+									/>
+								</Switch>
+							) : (
+								<Login />
+							)}
 					</BrowserRouter>
 				</div>
 			</div>
@@ -120,7 +143,13 @@ const mapDispatchToProps = (dispatch) => ({
 	updateFirebaseUserAction: (user) =>
 		dispatch(updateFirebaseUserAction(user)),
 	updateFirebaseAuthAction: (auth) =>
-		dispatch(updateFirebaseAuthAction(auth))
+		dispatch(updateFirebaseAuthAction(auth)),
+	updateFirebaseDatabaseUserDataSnapshotAction: (dataSnapshot) =>
+		dispatch(updateFirebaseDatabaseUserDataSnapshotAction(dataSnapshot)),
+	updateFirebaseDatabaseIngredientsDataSnapshotAction: (dataSnapshot) =>
+		dispatch(updateFirebaseDatabaseIngredientsDataSnapshotAction(dataSnapshot)),
+	updateFirebaseDatabaseSuppliersDataSnapshotAction: (dataSnapshot) =>
+		dispatch(updateFirebaseDatabaseSuppliersDataSnapshotAction(dataSnapshot)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

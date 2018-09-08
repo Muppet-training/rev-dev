@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class AccountBar extends Component {
 	constructor(props) {
 		super(props);
+
+		this.signOut = this.signOut.bind(this);
+	}
+
+	signOut() {
+		this.props.firebaseReducer.auth.signOut();
 	}
 
 	render() {
@@ -14,4 +21,8 @@ class AccountBar extends Component {
 	}
 }
 
-export default AccountBar;
+const mapStateToProps = (state) => ({
+	...state
+});
+
+export default connect(mapStateToProps)(AccountBar);

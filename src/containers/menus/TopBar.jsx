@@ -6,12 +6,6 @@ import icon from './icons/menu.svg';
 class TopBar extends Component {
 	constructor(props) {
 		super(props);
-
-		this.signOut = this.signOut.bind(this);
-	}
-
-	signOut() {
-		this.props.firebaseReducer.auth.signOut();
 	}
 
 	render() {
