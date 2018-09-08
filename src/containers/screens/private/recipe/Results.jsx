@@ -28,6 +28,24 @@ class Results extends Component {
 								<p>$7.42</p>
 								<p>$7.42</p>
 							</div>
+							<div className="result_list">
+								<h3>50g Ham</h3>
+								<p>24%</p>
+								<p>36.8%</p>
+								<p>35%</p>
+								<p>$12,861</p>
+								<p>$7.42</p>
+								<p>$7.42</p>
+							</div>
+							<div className="result_list">
+								<h3>50g Ham</h3>
+								<p>24%</p>
+								<p>36.8%</p>
+								<p>35%</p>
+								<p>$12,861</p>
+								<p>$7.42</p>
+								<p>$7.42</p>
+							</div>
 						</section>
 						<section className="compare_add">
 							<h3>Compare Recipe</h3>

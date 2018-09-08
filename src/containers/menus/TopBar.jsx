@@ -23,8 +23,7 @@ class TopBar extends Component {
 						onClick={this.props.menuToggleClick}>
 						<img src={icon} />
 					</li>
-					<li className="brand">Recipe Revenue<button onClick={this.signOut}>Sign Out</button>
-					</li>
+					<li className="brand">Recipe Revenue</li>
 					<li className="avatar">
 						<span>u</span>
 					</li>
@@ -34,7 +33,7 @@ class TopBar extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
 	...state
 });
 

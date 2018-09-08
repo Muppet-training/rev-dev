@@ -1,5 +1,5 @@
 //Launch Website
 npm start
 
-Launch Sas
-sass --watch src/sass:src/css;
+Launch Sass
+sass --watch src/sass:public
