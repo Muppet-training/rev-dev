@@ -6,7 +6,9 @@ import firebase from 'firebase';
 
 const uiConfig = {
   signInFlow: 'popup',
-  signInSuccessUrl: '/',
+  signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+    return false;
+  },
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
