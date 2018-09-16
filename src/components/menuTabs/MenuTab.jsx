@@ -12,9 +12,9 @@ class MenuTab extends Component {
 			{ itemName: 'Ingredients' },
 			{ itemName: 'Results' }
 		];
-		const ingredientItems = [ { itemName: 'Update Ingredient' } ];
-		const staffItems = [ { itemName: 'Update Staff' } ];
-		const packagingItems = [ { itemName: 'Update Packaging' } ];
+		const ingredientItems = [ { itemName: 'Edit Ingredient' } ];
+		const staffItems = [ { itemName: 'Edit Staff' } ];
+		const packagingItems = [ { itemName: 'Edit Packaging' } ];
 		const accountItems = [
 			{ itemName: 'Payment Details' },
 			{ itemName: 'Update Profile' }

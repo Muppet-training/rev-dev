@@ -14,8 +14,14 @@ import LeftBar from './containers/menus/LeftBar';
 
 import Dashboard from './containers/screens/private/dashboard/Dashboard';
 import EditRecipe from './containers/screens/private/recipe/EditRecipe';
+import ListRecipes from './containers/screens/private/recipe/ListRecipes';
 import EditIngredient from './containers/screens/private/ingredient/EditIngredient';
+import ListIngredients from './containers/screens/private/ingredient/ListIngredients';
 import EditPackaging from './containers/screens/private/packaging/EditPackaging';
+import ListPackaging from './containers/screens/private/packaging/ListPackaging';
+import EditFixedCosts from './containers/screens/private/fixedCosts/EditFixedCosts';
+import EditStaff from './containers/screens/private/staff/EditStaff';
+import ListStaff from './containers/screens/private/staff/ListStaff';
 
 import Login from './containers/screens/public/Login';
 
@@ -147,14 +153,44 @@ class App extends Component {
 									component={EditRecipe}
 								/>
 								<Route
+									path="/list-recipes"
+									exact
+									component={ListRecipes}
+								/>
+								<Route
 									path="/edit-ingredient"
 									exact
 									component={EditIngredient}
 								/>
 								<Route
+									path="/list-ingredients"
+									exact
+									component={ListIngredients}
+								/>
+								<Route
 									path="/edit-packaging"
 									exact
 									component={EditPackaging}
+								/>
+								<Route
+									path="/list-packaging"
+									exact
+									component={ListPackaging}
+								/>
+								<Route
+									path="/fixed-costs"
+									exact
+									component={EditFixedCosts}
+								/>
+								<Route
+									path="/update-staff"
+									exact
+									component={EditStaff}
+								/>
+								<Route
+									path="/all-staff"
+									exact
+									component={ListStaff}
 								/>
 							</Switch>
 						) : (
