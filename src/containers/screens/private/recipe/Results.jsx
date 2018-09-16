@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import TextInput from '../../../../components/textInputs/TextInput';
+import ResultOverview from '../../../../components/content/ResultOverview';
+import CalcProfit from '../../../../components/content/CalcProfit';
+import CalcCost from '../../../../components/content/CalcCost';
+import CalcPro from '../../../../components/content/CalcPro';
 
 class Results extends Component {
 	render() {
@@ -8,54 +13,32 @@ class Results extends Component {
 					<section className="screen_title">
 						<h1>Recipe Results</h1>
 					</section>
-					<div className="results_overview">
-						<section className="results_overview_names">
-							<h3>Recipe Name</h3>
-							<h3>Ingredient Cost</h3>
-							<h3>Staff Cost</h3>
-							<h3>Rental Cost</h3>
-							<h3>Profit Per Year</h3>
-							<h3>Profit Per Serve</h3>
-							<h3>Compared Profit</h3>
-						</section>
-						<section className="compare_results">
-							<div className="result_list">
-								<h3>Parma</h3>
-								<p>24%</p>
-								<p>36.8%</p>
-								<p>35%</p>
-								<p>$12,861</p>
-								<p>$7.42</p>
-								<p>$7.42</p>
-							</div>
-							<div className="result_list">
-								<h3>50g Ham</h3>
-								<p>24%</p>
-								<p>36.8%</p>
-								<p>35%</p>
-								<p>$12,861</p>
-								<p>$7.42</p>
-								<p>$7.42</p>
-							</div>
-							<div className="result_list">
-								<h3>50g Ham</h3>
-								<p>24%</p>
-								<p>36.8%</p>
-								<p>35%</p>
-								<p>$12,861</p>
-								<p>$7.42</p>
-								<p>$7.42</p>
-							</div>
-						</section>
-						<section className="compare_add">
-							<h3>Compare Recipe</h3>
-							<button>+ Recipe</button>
-							<p>
-								Use base recipe to optimise recipe
-								profits
-							</p>
-						</section>
-					</div>
+					<ResultOverview />
+					<div className="border_break" />
+					<section className="result-price">
+						<div>
+							<h3>Recommended Sales Price</h3>
+							<span>$16.21</span>
+						</div>
+						<form>
+							<TextInput
+								label="Confirm Sales Price"
+								name="internal"
+								type="text"
+							/>
+						</form>
+						<div className="border_break margin" />
+						<h3 className="base_results">
+							Recipe Results are based off selling 10
+							serves per day at $17.50
+						</h3>
+						<div className="border_break" />
+					</section>
+					<section className="result-calc">
+						<CalcProfit />
+						<CalcCost />
+						<CalcPro />
+					</section>
 				</section>
 			</div>
 		);

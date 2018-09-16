@@ -10,6 +10,9 @@
 		font-size: 20px;
 		padding-top: 15px;
 	}
+	@media (min-width: 905px) {
+		padding-left: 20px;
+	}
 }
 
 .details_input {

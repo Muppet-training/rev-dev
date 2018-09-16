@@ -138,8 +138,8 @@ table {
 .userapp {
   display: grid;
   grid-template-rows: 50px minmax(100vh, auto);
-  grid-template-columns: 100%;
-  grid-template-areas: " topbar" " screens";
+  grid-template-columns: 0px 100%;
+  grid-template-areas: "topbar topbar" "leftbar screens";
 }
 
 .userapp.menu div.leftbar {
@@ -156,8 +156,11 @@ table {
 }
 @media (min-width: 630px) {
   .userapp.menu {
-    grid-template-columns: auto;
-    grid-template-areas: " topbar" " screens";
+    grid-template-columns: 180px auto;
+    grid-template-areas: "topbar topbar" "leftbar screens";
+  }
+  .userapp.menu .results_overview1 {
+    width: 425px;
   }
 }
 
@@ -172,6 +175,20 @@ table {
 
 .screens {
   grid-area: screens;
+}
+
+.border_break {
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0px 10px;
+}
+@media (min-width: 905px) {
+  .border_break {
+    margin: 0px 20px;
+  }
+}
+
+.border_break.margin {
+  margin-top: 20px;
 }
 
 #Capa_1 path {
@@ -295,6 +312,11 @@ table {
     grid-template-areas: "la in";
   }
 }
+@media (min-width: 905px) {
+  .text_box {
+    padding-left: 20px;
+  }
+}
 
 form {
   width: 100%;
@@ -411,33 +433,52 @@ button.del_square:hover {
 }
 
 .results_overview {
-  padding: 15px 0px 0px 10px;
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: 150px auto;
-  grid-template-areas: "names compare" "add add";
+  padding: 15px 0px 10px 10px;
+  overflow-x: scroll;
 }
-@media (min-width: 550px) {
+@media (min-width: 905px) {
   .results_overview {
-    grid-template-rows: auto;
-    grid-template-columns: 170px minmax(140px, auto) 150px;
-    grid-template-areas: "names compare add";
+    padding: 15px 0px 0px 20px;
   }
 }
-
-.results_overview_names {
-  grid-area: names;
+.results_overview ul {
+  display: inline-flex;
 }
+.results_overview ul li:first-child {
+  width: 170px;
+}
+.results_overview ul .result_list {
+  width: 110px;
+}
+.results_overview ul .result_list h3 {
+  line-height: 20px;
+}
+.results_overview ul .result_list:last-child {
+  width: 180px;
+}
+
+.results_overview::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+  border-radius: 10px;
+}
+
+.results_overview::-webkit-scrollbar-thumb:horizontal {
+  background: orange;
+  border-radius: 10px;
+}
+
 .results_overview_names h3 {
   font-size: 16px;
   line-height: 40px;
   color: #818181;
 }
+.results_overview_names h3.recipe_name {
+  line-height: 20px;
+}
 
 .compare_results {
-  grid-area: compare;
   display: inline-flex;
-  overflow-x: scroll;
 }
 .compare_results h3 {
   font-size: 16px;
@@ -451,7 +492,7 @@ button.del_square:hover {
   padding-left: 20px;
 }
 .compare_results div.result_list {
-  padding-right: 30px;
+  padding-right: 10px;
   margin-right: 20px;
   border-right: 1px solid #e5e5e5;
 }
@@ -473,7 +514,6 @@ button.del_square:hover {
 }
 
 .compare_add {
-  grid-area: add;
   margin: auto;
   text-align: center;
 }
@@ -502,6 +542,110 @@ button.del_square:hover {
   margin: auto;
   line-height: 20px;
 }
+@media (min-width: 550px) {
+  .compare_add {
+    display: none;
+  }
+}
+
+div.result_list.compare_add {
+  display: none;
+}
+@media (min-width: 550px) {
+  div.result_list.compare_add {
+    display: block;
+    margin: 0px;
+  }
+  div.result_list.compare_add:last-child {
+    border-right: 0;
+  }
+}
+
+.result-price {
+  padding-top: 20px;
+}
+
+.result-price h3 {
+  display: inline;
+  padding: 0px 30px 0px 10px;
+}
+@media (min-width: 905px) {
+  .result-price h3 {
+    padding: 0px 30px 0px 20px;
+  }
+}
+.result-price span {
+  font-weight: 400;
+}
+@media (min-width: 480px) {
+  .result-price div.text_box {
+    grid-template-columns: 240px 215px;
+  }
+}
+.result-price h3.base_results {
+  line-height: 25px;
+  display: block;
+  text-align: center;
+  padding: 15px 0px;
+}
+
+.result-calc {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 100%;
+  grid-template-areas: "profit" "cost" "pro";
+  padding: 10px 0px 20px 10px;
+}
+@media (min-width: 480px) and (max-width: 904px) {
+  .result-calc {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, auto);
+    grid-template-areas: "profit cost pro";
+    padding: 10px 0px 20px 20px;
+  }
+}
+@media (min-width: 905px) {
+  .result-calc {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, auto);
+    grid-template-areas: "profit cost pro";
+    padding: 10px 0px 20px 20px;
+  }
+}
+.result-calc div.border_break {
+  margin: 12px 10px;
+}
+
+.calc-profit {
+  grid-area: profit;
+}
+
+.calc-cost {
+  grid-area: cost;
+}
+
+.calc-pro {
+  grid-area: pro;
+}
+
+.calc-data {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: auto 50px;
+  grid-template-areas: "p s";
+  max-width: 240px;
+  margin: auto;
+  padding: 12px 0px;
+}
+.calc-data p {
+  grid-area: p;
+  display: inline;
+  padding-right: 10px;
+}
+.calc-data span {
+  grid-area: s;
+  font-weight: 400;
+}
 
 .screen_title {
   height: 40px;
@@ -510,6 +654,11 @@ button.del_square:hover {
 .screen_title h1 {
   font-size: 20px;
   padding-top: 15px;
+}
+@media (min-width: 905px) {
+  .screen_title {
+    padding-left: 20px;
+  }
 }
 
 .details_packaging {

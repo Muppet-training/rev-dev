@@ -19,6 +19,9 @@
 		grid-template-columns: 210px 215px;
 		grid-template-areas: 'la in';
 	}
+	@media (min-width: 905px) {
+		padding-left: 20px;
+	}
 }
 
 form {
@@ -141,33 +144,53 @@ button.del_square {
 
 // Results Styling
 .results_overview {
-	padding: 15px 0px 0px 10px;
-	display: grid;
-	grid-template-rows: auto auto;
-	grid-template-columns: 150px auto;
-	grid-template-areas: 'names compare' 'add add';
-
-	@media (min-width: 550px) {
-		grid-template-rows: auto;
-		grid-template-columns: 170px minmax(140px, auto) 150px;
-		grid-template-areas: 'names compare add';
+	padding: 15px 0px 10px 10px;
+	overflow-x: scroll;
+	@media (min-width: 905px) {
+		padding: 15px 0px 0px 20px;
+	}
+	ul {
+		display: inline-flex;
+		li:first-child {
+			width: 170px;
+		}
+		.result_list {
+			width: 110px;
+			h3 {
+				line-height: 20px;
+			}
+		}
+		.result_list:last-child {
+			width: 180px;
+		}
 	}
 }
 
-.results_overview_names {
-	grid-area: names;
+.results_overview::-webkit-scrollbar {
+	height: 4px;
+	width: 4px;
+	// background: $grey_border;
+	border-radius: 10px;
+}
+.results_overview::-webkit-scrollbar-thumb:horizontal {
+	background: $primary_light;
+	border-radius: 10px;
+}
 
+.results_overview_names {
 	h3 {
 		font-size: 16px;
 		line-height: 40px;
 		color: $grey_text;
 	}
+	h3.recipe_name {
+		line-height: 20px;
+	}
 }
 
 .compare_results {
-	grid-area: compare;
 	display: inline-flex;
-	overflow-x: scroll;
+	// overflow-x: scroll;
 	h3 {
 		font-size: 16px;
 		line-height: 40px;
@@ -180,7 +203,7 @@ button.del_square {
 		padding-left: 20px;
 	}
 	div.result_list {
-		padding-right: 30px;
+		padding-right: 10px;
 		margin-right: 20px;
 		border-right: 1px solid $grey_border;
 	}
@@ -203,7 +226,6 @@ button.del_square {
 }
 
 .compare_add {
-	grid-area: add;
 	margin: auto;
 	text-align: center;
 	h3 {
@@ -230,5 +252,103 @@ button.del_square {
 		width: 130px;
 		margin: auto;
 		line-height: 20px;
+	}
+	@media (min-width: 550px) {
+		display: none;
+	}
+}
+
+div.result_list.compare_add {
+	display: none;
+	@media (min-width: 550px) {
+		display: block;
+		margin: 0px;
+		&:last-child {
+			border-right: 0;
+		}
+	}
+}
+
+.result-price {
+	padding-top: 20px;
+}
+
+.result-price {
+	h3 {
+		display: inline;
+		padding: 0px 30px 0px 10px;
+		@media (min-width: 905px) {
+			padding: 0px 30px 0px 20px;
+		}
+	}
+	span {
+		font-weight: 400;
+	}
+	div.text_box {
+		@media (min-width: 480px) {
+			grid-template-columns: 240px 215px;
+		}
+	}
+	h3.base_results {
+		line-height: 25px;
+		display: block;
+		text-align: center;
+		padding: 15px 0px;
+	}
+}
+
+.result-calc {
+	display: grid;
+	grid-template-rows: repeat(3, auto);
+	grid-template-columns: 100%;
+	grid-template-areas: 'profit' 'cost' 'pro';
+	padding: 10px 0px 20px 10px;
+
+	@media (min-width: 480px) and (max-width: 904px) {
+		grid-template-rows: auto;
+		grid-template-columns: repeat(3, auto);
+		grid-template-areas: 'profit cost pro';
+		padding: 10px 0px 20px 20px;
+	}
+	@media (min-width: 905px) {
+		grid-template-rows: auto;
+		grid-template-columns: repeat(3, auto);
+		grid-template-areas: 'profit cost pro';
+		padding: 10px 0px 20px 20px;
+	}
+
+	div.border_break {
+		margin: 12px 10px;
+	}
+}
+
+.calc-profit {
+	grid-area: profit;
+}
+.calc-cost {
+	grid-area: cost;
+}
+.calc-pro {
+	grid-area: pro;
+}
+
+.calc-data {
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: auto 50px;
+	grid-template-areas: 'p s';
+	max-width: 240px;
+	margin: auto;
+	padding: 12px 0px;
+
+	p {
+		grid-area: p;
+		display: inline;
+		padding-right: 10px;
+	}
+
+	span {
+		grid-area: s;
+		font-weight: 400;
 	}
 }
