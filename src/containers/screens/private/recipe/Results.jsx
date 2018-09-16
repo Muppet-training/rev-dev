@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TextInput from '../../../../components/textInputs/TextInput';
 import ResultOverview from '../../../../components/content/ResultOverview';
+import ResultIngredients from '../../../../components/content/ResultIngredients';
 import CalcProfit from '../../../../components/content/CalcProfit';
 import CalcCost from '../../../../components/content/CalcCost';
 import CalcPro from '../../../../components/content/CalcPro';
@@ -38,6 +39,13 @@ class Results extends Component {
 						<CalcProfit />
 						<CalcCost />
 						<CalcPro />
+					</section>
+					<section className="result-ingredients">
+						<div className="border_break" />
+						<section className="screen_title">
+							<h1>Ingredient Results</h1>
+						</section>
+						<ResultIngredients />
 					</section>
 				</section>
 			</div>

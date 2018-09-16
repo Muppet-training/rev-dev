@@ -6,16 +6,15 @@
 .screen_title {
 	height: 40px;
 	padding-left: 10px;
+
 	h1 {
 		font-size: 20px;
 		padding-top: 15px;
+		font-weight: 400;
 	}
 	@media (min-width: 905px) {
 		padding-left: 20px;
 	}
-}
-
-.details_input {
 }
 
 .details_packaging {

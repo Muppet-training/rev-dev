@@ -96,14 +96,17 @@ button.del_square {
 
 .label_1 {
 	grid-area: l1;
+	margin-top: 20px;
 }
 
 .label_2 {
 	grid-area: l2;
+	margin-top: 20px;
 }
 
 .label_3 {
 	grid-area: l3;
+	margin-top: 20px;
 }
 
 .input_1 {
@@ -303,6 +306,7 @@ div.result_list.compare_add {
 	grid-template-columns: 100%;
 	grid-template-areas: 'profit' 'cost' 'pro';
 	padding: 10px 0px 20px 10px;
+	max-width: 940px;
 
 	@media (min-width: 480px) and (max-width: 904px) {
 		grid-template-rows: auto;
@@ -318,16 +322,19 @@ div.result_list.compare_add {
 	}
 
 	div.border_break {
-		margin: 12px 10px;
+		max-width: 200px;
+		margin: 12px auto;
 	}
 }
 
 .calc-profit {
 	grid-area: profit;
 }
+
 .calc-cost {
 	grid-area: cost;
 }
+
 .calc-pro {
 	grid-area: pro;
 }
@@ -339,7 +346,7 @@ div.result_list.compare_add {
 	grid-template-areas: 'p s';
 	max-width: 240px;
 	margin: auto;
-	padding: 12px 0px;
+	padding: 12px 6px;
 
 	p {
 		grid-area: p;
@@ -350,5 +357,30 @@ div.result_list.compare_add {
 	span {
 		grid-area: s;
 		font-weight: 400;
+	}
+}
+
+.result-ingredients {
+	margin-bottom: 50px;
+	div.border_break {
+		margin-bottom: 20px;
+	}
+	div.results_overview ul .result_list {
+		width: 120px;
+		&:last-child {
+			max-width: 120px;
+			border: none;
+		}
+	}
+}
+
+.edit-ingredient {
+	div.border_break {
+		max-width: 415px;
+		margin-top: 40px;
+		margin-bottom: 20px;
+	}
+	form:last-child {
+		margin-bottom: 50px;
 	}
 }
