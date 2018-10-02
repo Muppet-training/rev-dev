@@ -4,7 +4,7 @@ export default (props) => {
 	return (
 		<div
 			className="results_overview ingredient_results"
-			id="results_overview"
+			id="result_ingredients"
 		>
 			<ul>
 				<li>

@@ -147,15 +147,15 @@ table {
 		width: 180px;
 	}
 
-	@media (max-width: 629px) {
+	@media (max-width: 709px) {
 		div.leftbar {
 			z-index: 1;
-			position: absolute;
-			top: 50px;
+			// position: absolute;
+			// top: 50px;
 		}
 	}
 
-	@media (min-width: 630px) {
+	@media (min-width: 710px) {
 		grid-template-columns: 180px auto;
 		grid-template-areas: 'topbar topbar' 'leftbar screens';
 		.results_overview1 {
@@ -193,9 +193,6 @@ table {
 	ul {
 		display: inline-flex;
 		flex-wrap: wrap;
-		// &:before {
-		// 	clear: both;
-		// }
 
 		padding-left: 10px;
 		@media (min-width: 905px) {

@@ -8,7 +8,7 @@ class EditRecipe extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			toggle: 'ingredients'
+			toggle: 'results'
 		};
 	}
 

@@ -24,6 +24,8 @@ import EditStaff from './containers/screens/private/staff/EditStaff';
 import ListStaff from './containers/screens/private/staff/ListStaff';
 
 import Login from './containers/screens/public/Login';
+import MenuWidth from './utils/MenuWidth';
+import NoMenuWidth from './utils/NoMenuWidth';
 
 // import './css/style.css';
 
@@ -119,84 +121,91 @@ class App extends Component {
 		const { toggleMenu } = this.state;
 
 		return (
-			<div
-				id="app"
-				className={
-					this.props.firebaseReducer.user === false ? (
-						'app'
-					) : toggleMenu === true ? (
-						'userapp menu'
-					) : (
-						'userapp'
-					)
-				}
-			>
-				{this.props.firebaseReducer.user !== undefined && (
-					<TopBar menuToggleClick={this.menuToggleClick} />
-				)}
-				{this.props.firebaseReducer.user !== undefined && (
-					<LeftBar />
-				)}
-				<div className="screens">
-					<BrowserRouter>
-						{this.props.firebaseReducer.user !==
-						undefined ? (
-							<Switch>
-								<Route
-									path="/"
-									exact={true}
-									component={Dashboard}
-								/>
-								<Route
-									path="/edit-recipe"
-									exact
-									component={EditRecipe}
-								/>
-								<Route
-									path="/list-recipes"
-									exact
-									component={ListRecipes}
-								/>
-								<Route
-									path="/edit-ingredient"
-									exact
-									component={EditIngredient}
-								/>
-								<Route
-									path="/list-ingredients"
-									exact
-									component={ListIngredients}
-								/>
-								<Route
-									path="/edit-packaging"
-									exact
-									component={EditPackaging}
-								/>
-								<Route
-									path="/list-packaging"
-									exact
-									component={ListPackaging}
-								/>
-								<Route
-									path="/fixed-costs"
-									exact
-									component={EditFixedCosts}
-								/>
-								<Route
-									path="/update-staff"
-									exact
-									component={EditStaff}
-								/>
-								<Route
-									path="/all-staff"
-									exact
-									component={ListStaff}
-								/>
-							</Switch>
+			<div id="app">
+				<div
+					id={toggleMenu == true ? 'menu' : 'no_menu'}
+					{...(toggleMenu == true
+						? MenuWidth()
+						: NoMenuWidth())}
+					className={
+						this.props.firebaseReducer.user == false ? (
+							'app'
+						) : toggleMenu == true ? (
+							'userapp menu'
 						) : (
-							<Login />
-						)}
-					</BrowserRouter>
+							'userapp'
+						)
+					}
+				>
+					{this.props.firebaseReducer.user !==
+						undefined && (
+						<TopBar
+							menuToggleClick={this.menuToggleClick}
+						/>
+					)}
+					{this.props.firebaseReducer.user !==
+						undefined && <LeftBar />}
+					<div className="screens">
+						<BrowserRouter>
+							{this.props.firebaseReducer.user !==
+							undefined ? (
+								<Switch>
+									<Route
+										path="/"
+										exact={true}
+										component={Dashboard}
+									/>
+									<Route
+										path="/edit-recipe"
+										exact
+										component={EditRecipe}
+									/>
+									<Route
+										path="/list-recipes"
+										exact
+										component={ListRecipes}
+									/>
+									<Route
+										path="/edit-ingredient"
+										exact
+										component={EditIngredient}
+									/>
+									<Route
+										path="/list-ingredients"
+										exact
+										component={ListIngredients}
+									/>
+									<Route
+										path="/edit-packaging"
+										exact
+										component={EditPackaging}
+									/>
+									<Route
+										path="/list-packaging"
+										exact
+										component={ListPackaging}
+									/>
+									<Route
+										path="/fixed-costs"
+										exact
+										component={EditFixedCosts}
+									/>
+									<Route
+										path="/update-staff"
+										exact
+										component={EditStaff}
+									/>
+									<Route
+										path="/all-staff"
+										exact
+										component={ListStaff}
+									/>
+								</Switch>
+							) : (
+								<Login />
+							)}
+						</BrowserRouter>
+					</div>
 				</div>
 			</div>
 		);

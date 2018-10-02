@@ -147,14 +147,12 @@ table {
   background-color: #f1f1f1;
   width: 180px;
 }
-@media (max-width: 629px) {
+@media (max-width: 709px) {
   .userapp.menu div.leftbar {
     z-index: 1;
-    position: absolute;
-    top: 50px;
   }
 }
-@media (min-width: 630px) {
+@media (min-width: 710px) {
   .userapp.menu {
     grid-template-columns: 180px auto;
     grid-template-areas: "topbar topbar" "leftbar screens";
@@ -532,13 +530,13 @@ button.del_square:hover {
   padding: 15px 0px 10px 10px;
   overflow-x: scroll;
 }
-@media (min-width: 905px) {
-  .results_overview {
-    padding: 15px 0px 0px 20px;
-  }
-}
 .results_overview ul {
   display: inline-flex;
+}
+@media (min-width: 905px) {
+  .results_overview ul {
+    padding: 15px 0px 0px 20px;
+  }
 }
 .results_overview ul li:first-child {
   width: 170px;

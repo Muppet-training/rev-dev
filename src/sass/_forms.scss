@@ -149,11 +149,13 @@ button.del_square {
 .results_overview {
 	padding: 15px 0px 10px 10px;
 	overflow-x: scroll;
-	@media (min-width: 905px) {
-		padding: 15px 0px 0px 20px;
-	}
+
 	ul {
 		display: inline-flex;
+		@media (min-width: 905px) {
+			padding: 15px 0px 0px 20px;
+		}
+
 		li:first-child {
 			width: 170px;
 		}
