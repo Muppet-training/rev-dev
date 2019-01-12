@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
+// import { Provider } from 'react-redux';
+// import store from './store';
 
 import TopBar from './components/layout/TopBar';
 import LeftBar from './components/layout/LeftBar';
@@ -21,13 +22,9 @@ import MenuWidth from './utils/MenuWidth';
 import NoMenuWidth from './utils/NoMenuWidth';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			toggleMenu: false
-		};
-	}
+	state = {
+		toggleMenu: false
+	};
 
 	menuToggleClick = () => {
 		this.setState((state) => ({
@@ -80,7 +77,7 @@ class App extends Component {
 									component={EditIngredient}
 								/>
 								<Route
-									path="/list-ingredients"
+									path="/ingredients"
 									exact
 									component={ListIngredients}
 								/>
@@ -123,8 +120,4 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	...state
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
