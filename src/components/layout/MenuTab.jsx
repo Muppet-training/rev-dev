@@ -4,16 +4,22 @@ import TabItem from './TabItem';
 class MenuTab extends Component {
 	render() {
 		const recipeItems = [
-			{ itemName: 'Details' },
-			{ itemName: 'Ingredients' },
-			{ itemName: 'Results' }
+			{ itemName: 'Details', url: '/edit-recipe' },
+			{ itemName: 'Ingredients', url: '/edit-recipe' },
+			{ itemName: 'Results', url: '/edit-recipe' }
 		];
-		const ingredientItems = [ { itemName: 'Edit Ingredient' } ];
-		const staffItems = [ { itemName: 'Edit Staff' } ];
-		const packagingItems = [ { itemName: 'Edit Packaging' } ];
+		const ingredientItems = [
+			{ itemName: 'Edit Ingredient', url: '/edit-ingredient' }
+		];
+		const staffItems = [
+			{ itemName: 'Edit Staff', url: '/edit-staff' }
+		];
+		const packagingItems = [
+			{ itemName: 'Edit Packaging', url: '/edit-packaging' }
+		];
 		const accountItems = [
-			{ itemName: 'Payment Details' },
-			{ itemName: 'Update Profile' }
+			{ itemName: 'Payment Details', url: '/payment-details' },
+			{ itemName: 'Update Profile', url: '/update-profile' }
 		];
 
 		return (
@@ -22,7 +28,7 @@ class MenuTab extends Component {
 					<h4>Overview</h4>
 				</section>
 				<section>
-					<h4>Recipe</h4>
+					<h4>Recipes</h4>
 					<TabItem tabItems={recipeItems} />
 				</section>
 				<section>

@@ -381,6 +381,9 @@ table {
   line-height: 30px;
   font-size: 15px;
 }
+.tabitem a {
+  text-decoration: none;
+}
 
 .text_box label {
   grid-area: la;
