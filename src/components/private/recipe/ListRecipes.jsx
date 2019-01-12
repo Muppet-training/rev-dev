@@ -1,99 +1,84 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ListRecipes extends Component {
 	render() {
-		return (
-			<div className="list recipe">
-				<section className="screen_title">
-					<h1>Your Recipes</h1>
-				</section>
-				<section className="list-content">
-					<ul>
-						<li>
-							<h3>Recipe Name</h3>
-						</li>
-						<li>
-							<h3>Profit Per Serve</h3>
-						</li>
-						<li>
-							<h3>Sale Price</h3>
-						</li>
-						<li>
-							<h3>Profit Margin</h3>
-						</li>
-						<li />
-					</ul>
-					<ul>
-						<li>
-							<p>Apple Pie</p>
-						</li>
-						<li>
-							<p>$6.12</p>
-						</li>
-						<li>
-							<p>$18.00</p>
-						</li>
-						<li>
-							<p>23%</p>
-						</li>
-						<li>
-							<button>Edit</button>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<p>Burger</p>
-						</li>
-						<li>
-							<p>$4.58</p>
-						</li>
-						<li>
-							<p>$12.00</p>
-						</li>
-						<li>
-							<p>12%</p>
-						</li>
-						<li>
-							<button>Edit</button>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<p>Orange Cake</p>
-						</li>
-						<li>
-							<p>$5.80</p>
-						</li>
-						<li>
-							<p>$13.00</p>
-						</li>
-						<li>
-							<p>15.8%</p>
-						</li>
-						<li>
-							<button>Edit</button>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<p>Tomato Soup</p>
-						</li>
-						<li>
-							<p>$8.23</p>
-						</li>
-						<li>
-							<p>$12</p>
-						</li>
-						<li>
-							<p>63.21%</p>
-						</li>
-						<li>
-							<button>Edit</button>
-						</li>
-					</ul>
-				</section>
-			</div>
-		);
+		const recipes = [
+			{
+				name: 'Appie Pie',
+				profitPreServe: 6.12,
+				salesPrice: 18.75,
+				profitMargin: 0.23
+			},
+			{
+				name: 'Burger',
+				profitPreServe: 5.8,
+				salesPrice: 13,
+				profitMargin: 0.15
+			},
+			{
+				name: 'Orange Cake',
+				profitPreServe: 34,
+				salesPrice: 120,
+				profitMargin: 0.44
+			},
+			{
+				name: 'Burrito',
+				profitPreServe: 9.1,
+				salesPrice: 21,
+				profitMargin: 0.67
+			}
+		];
+
+		if (recipes) {
+			return (
+				<div className="list recipe">
+					<section className="list-content">
+						<ul>
+							<li>
+								<h3>Recipe Name</h3>
+							</li>
+							<li>
+								<h3>Profit Per Serve</h3>
+							</li>
+							<li>
+								<h3>Sale Price</h3>
+							</li>
+							<li>
+								<h3>Profit Margin</h3>
+							</li>
+							<li />
+						</ul>
+						{recipes.map((recipe) => (
+							<ul>
+								<li>
+									<p>{recipe.name}</p>
+								</li>
+								<li>
+									<p>${recipe.profitPreServe}</p>
+								</li>
+								<li>
+									<p>${recipe.salesPrice}</p>
+								</li>
+								<li>
+									<p>{recipe.profitMargin}%</p>
+								</li>
+								<li>
+									<Link
+										className="link-button"
+										to={`/edit-recipe/${recipe.name}`}
+									>
+										Edit
+									</Link>
+								</li>
+							</ul>
+						))}
+					</section>
+				</div>
+			);
+		} else {
+			return <h1>Loading</h1>;
+		}
 	}
 }
 

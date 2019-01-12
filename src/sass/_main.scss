@@ -221,7 +221,7 @@ table {
 				width: 150px;
 			}
 
-			button {
+			.link-button {
 				background-color: $grey_highlight;
 				height: 30px;
 				width: 45px;
@@ -231,9 +231,13 @@ table {
 				cursor: pointer;
 				outline: 0;
 				font-size: 14px;
+				text-decoration: none;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 
-			button:hover {
+			.link-button:hover {
 				background-color: $secondary_light;
 				color: #fff;
 				border: 1px solid $secondary_dark;

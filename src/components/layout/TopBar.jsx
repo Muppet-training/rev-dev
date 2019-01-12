@@ -16,7 +16,9 @@ class TopBar extends Component {
 					</li>
 					<li className="brand">Recipe Revenue</li>
 					<li className="avatar">
-						<span>u</span>
+						<span>
+							<i className="fas fa-users" />
+						</span>
 					</li>
 				</ul>
 			</div>

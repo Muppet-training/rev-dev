@@ -222,7 +222,7 @@ table {
     width: 150px;
   }
 }
-.list ul li:last-child button {
+.list ul li:last-child .link-button {
   background-color: #f1f1f1;
   height: 30px;
   width: 45px;
@@ -232,8 +232,12 @@ table {
   cursor: pointer;
   outline: 0;
   font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.list ul li:last-child button:hover {
+.list ul li:last-child .link-button:hover {
   background-color: #57b07b;
   color: #fff;
   border: 1px solid #409964;

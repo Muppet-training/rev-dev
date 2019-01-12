@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-// import AccountBar from '../../../menus/AccountBar';
+import ListRecipes from '../recipe/ListRecipes';
 
 class Dashboard extends Component {
 	render() {
-		return <div>Logged In Overview</div>;
+		return (
+			<div className="list recipe">
+				<section className="screen_title">
+					<h1>Dashboard</h1>
+				</section>
+				<ListRecipes />
+			</div>
+		);
 	}
 }
 
