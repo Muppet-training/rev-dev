@@ -70,7 +70,7 @@ class App extends Component {
 									component={EditRecipe}
 								/>
 								<Route
-									path="/list-recipes"
+									path="/recipes"
 									exact
 									component={ListRecipes}
 								/>

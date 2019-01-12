@@ -5,7 +5,7 @@ class ListRecipes extends Component {
 		return (
 			<div className="list recipe">
 				<section className="screen_title">
-					<h1>Recipe List</h1>
+					<h1>Your Recipes</h1>
 				</section>
 				<section className="list-content">
 					<ul>
