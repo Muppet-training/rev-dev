@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 
 class FormButton extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-
-      </div>
-    );
-  }
+	render() {
+		return <div>Form Button</div>;
+	}
 }
 
 export default FormButton;

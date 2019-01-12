@@ -1,32 +1,32 @@
 {
-  "name": "recipe-revenue-calc",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "firebase": "^5.4.2",
-    "firebaseui": "^3.4.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-firebaseui": "^3.0.7",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
-    "react-svg-icon": "^4.0.1",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^3.4.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "node-sass": "^4.9.3",
-    "sass-extract": "^2.1.0",
-    "sass-extract-js": "^0.4.0",
-    "sass-extract-loader": "^1.1.0",
-    "sass-loader": "^7.1.0"
-  }
+	"name": "rev-dev",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"firebase": "^5.4.2",
+		"firebaseui": "^3.4.0",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2",
+		"react-firebaseui": "^3.0.7",
+		"react-redux": "^5.0.7",
+		"react-router-dom": "^4.3.1",
+		"react-scripts": "1.1.4",
+		"react-svg-icon": "^4.0.1",
+		"redux": "^4.0.0",
+		"redux-thunk": "^2.3.0",
+		"styled-components": "^3.4.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"node-sass": "^4.9.3",
+		"sass-extract": "^2.1.0",
+		"sass-extract-js": "^0.4.0",
+		"sass-extract-loader": "^1.1.0",
+		"sass-loader": "^7.1.0"
+	}
 }
