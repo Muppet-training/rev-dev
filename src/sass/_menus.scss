@@ -20,14 +20,15 @@
 }
 
 .topbar {
-	background-color: #525252;
-
 	ul {
 		display: grid;
 		grid-row: auto;
 		grid-template-columns: 60px auto 60px;
 		grid-template-areas: "toggle brand avatar";
 		margin: 0px;
+		position: fixed;
+		width: 100%;
+		background-color: #525252;
 
 		.menu-toggle {
 			height: 45px;

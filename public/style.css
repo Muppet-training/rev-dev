@@ -303,15 +303,15 @@ table {
   grid-area: "avatar";
 }
 
-.topbar {
-  background-color: #525252;
-}
 .topbar ul {
   display: grid;
   grid-row: auto;
   grid-template-columns: 60px auto 60px;
   grid-template-areas: "toggle brand avatar";
   margin: 0px;
+  position: fixed;
+  width: 100%;
+  background-color: #525252;
 }
 .topbar ul .menu-toggle {
   height: 45px;
@@ -420,6 +420,11 @@ table {
 form {
   width: 100%;
 }
+form button {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
 label {
   font-size: 16px;
   margin-top: 20px;

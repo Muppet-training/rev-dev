@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import icon from './icons/menu.svg';
-
 class TopBar extends Component {
 	render() {
 		return (
@@ -12,7 +10,7 @@ class TopBar extends Component {
 						className="menu-toggle"
 						onClick={this.props.menuToggleClick}
 					>
-						<img src={icon} alt="Toggle Icon" />
+						<i className="fas fa-bars" />
 					</li>
 					<li className="brand">Recipe Revenue</li>
 					<li className="avatar">
@@ -26,8 +24,11 @@ class TopBar extends Component {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	...state
-});
+const mapStateToProps = (state) => {
+	// ...state
+	console.log(state);
+
+	return {};
+};
 
 export default connect(mapStateToProps)(TopBar);

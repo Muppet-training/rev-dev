@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { Link } from 'react-router-dom';
+import { firestoreConnect } from 'react-redux-firebase';
 
 class ListIngredients extends Component {
 	render() {
@@ -26,20 +28,20 @@ class ListIngredients extends Component {
 						<li />
 					</ul>
 					{ingredients.map((ingredient) => (
-						<ul>
+						<ul key={ingredient.name}>
 							<li>
 								<p>{ingredient.name}</p>
 							</li>
 							<li>
-								<p>${ingredient.cost}</p>
+								<p>${ingredient.pCost}</p>
 							</li>
 							<li>
-								<p>{ingredient.packetGrams}g</p>
+								<p>{ingredient.pGrams}g</p>
 							</li>
 							<li>
 								<Link
 									className="link-button"
-									to={`/edit-ingredient/${ingredient.name}`}
+									to={`/edit-ingredient/${ingredient.id}`}
 								>
 									Edit
 								</Link>
@@ -53,9 +55,17 @@ class ListIngredients extends Component {
 }
 
 const mapStateToProps = (state) => {
+	console.log(state); //Check here is the firestore data has synced correctly to the component
 	return {
-		ingredients: state.ingredient.ingredients
+		ingredients: state.firestore.ordered.ingredients
 	};
 };
 
-export default connect(mapStateToProps)(ListIngredients);
+export default compose(
+	firestoreConnect([
+		{
+			collection: 'ingredients'
+		}
+	]),
+	connect(mapStateToProps)
+)(ListIngredients);

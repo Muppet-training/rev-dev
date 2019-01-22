@@ -2,24 +2,33 @@ const initState = {
 	ingredients: [
 		{
 			name: 'Eggs',
-			cost: 4,
-			packetGrams: 700
+			pCost: 4,
+			pGrams: 700
 		},
 		{
 			name: 'Flour',
-			cost: 15.62,
-			packetGrams: 10000
+			pCost: 15.62,
+			pGrams: 10000
 		},
 		{
 			name: 'Tomatos',
-			cost: 1.28,
-			packetGrams: 450
+			pCost: 1.28,
+			pGrams: 450
 		}
 	]
 };
 
 const ingredientReducer = (state = initState, action) => {
-	return state;
+	switch (action.type) {
+		case 'CREATE_INGREDIENT':
+			console.log('Created Ingredient', action.payload);
+			return state;
+		case 'CREATE_INGREDIENT_ERROR':
+			console.log('Create Project Error', action.payload);
+			return state;
+		default:
+			return state;
+	}
 };
 
 export default ingredientReducer;

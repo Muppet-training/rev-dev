@@ -10,7 +10,7 @@ import Dashboard from './components/private/dashboard/Dashboard';
 import EditRecipe from './components/private/recipe/EditRecipe';
 import ListRecipes from './components/private/recipe/ListRecipes';
 import EditIngredient from './components/private/ingredient/EditIngredient';
-import ListIngredients from './components/private/ingredient/ListIngredients';
+// import ListIngredients from './components/private/ingredient/ListIngredients';
 import EditPackaging from './components/private/packaging/EditPackaging';
 import ListPackaging from './components/private/packaging/ListPackaging';
 import EditFixedCosts from './components/private/fixedCosts/EditFixedCosts';
@@ -72,14 +72,14 @@ class App extends Component {
 									component={ListRecipes}
 								/>
 								<Route
-									path="/edit-ingredient"
+									path="/edit-ingredient/:id"
 									exact
 									component={EditIngredient}
 								/>
 								<Route
 									path="/ingredients"
 									exact
-									component={ListIngredients}
+									component={EditIngredient}
 								/>
 								<Route
 									path="/edit-packaging"
